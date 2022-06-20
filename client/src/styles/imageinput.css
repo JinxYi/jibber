@@ -1,0 +1,29 @@
+
+.upload-img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    --container-side: 150px;
+    width: var(--container-side);
+    height: var(--container-side);
+    border-radius: calc(var(--container-side) / 2);
+    background-color: #ddd;
+    margin: 0 auto;
+    overflow: hidden;
+    box-shadow: 1px 5px 8px 3px rgba(82, 84, 82, 0.08);
+}
+
+.upload-img {
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+}
+
+.upload-img-wrapper:hover .upload-img {
+    width: 110%;
+}
+
+.img-input {
+    display: none;
+}

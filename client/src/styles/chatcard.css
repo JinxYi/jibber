@@ -1,0 +1,129 @@
+.chatlist {
+    width: 40%;
+    height: calc(100% - (var(--wrapper-spacing)) * 2);
+    margin: calc(var(--wrapper-spacing)) 0;
+    overflow-x: auto;
+    --chatlist-text-spacing: 0.25rem;
+}
+
+.chatlist-chat {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: var(--container-border-radius);
+    margin: 0 0 0 var(--wrapper-spacing);
+    padding: 0.55rem;
+}
+
+.chatlist {
+    overflow-y: scroll;
+    mask-image: linear-gradient(to top, transparent, white),
+        linear-gradient(to left, transparent var(--scrollbar-width) white var(--scrollbar-width));
+    mask-size: 100% 300rem;
+    mask-position: left bottom;
+    -webkit-mask-image: linear-gradient(to top, transparent, white),
+      linear-gradient(to left, transparent var(--scrollbar-width), white var(--scrollbar-width));
+    -webkit-mask-size: 100% 300rem;
+    -webkit-mask-position: left bottom;
+    transition: mask-position 0.3s, -webkit-mask-position 0.3s;
+}
+
+.chatlist:hover {
+    mask-position: left top;
+    -webkit-mask-position: left top;
+}
+
+
+.chatlist-chat:hover {
+    background-color: var(--theme-secondary-color);
+}
+
+.chat-wrapper-l {
+    min-width: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #e3e3e3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: var(--chatlist-text-spacing);
+}
+
+.chat-card-img {
+    width: 100%;
+    height: auto;
+}
+
+.chat-wrapper-r {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.chat-wrapper-rt {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.chat-card-name {
+    width: 3rem;
+    padding: var(--chatlist-text-spacing);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+    font-weight: 700;
+    color: var(--theme-accent-color);
+}
+
+.chat-card-lastmsg-time {
+    font-size: 0.7rem;
+    color: #555;
+    margin: var(--chatlist-text-spacing);
+}
+
+.chat-wrapper-rb {
+    display: flex;
+    flex-direction: row;
+    /* align-items: flex-end; */
+    justify-content: space-between;
+}
+
+.chat-card-lastmsg {
+    width: calc(100% - 50px - var(--chatlist-text-spacing) * 4);
+    padding: var(--chatlist-text-spacing);
+    font-size: 0.85rem;
+    color: #555;
+    overflow-y: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* flex-grow: 1; */
+}
+
+.chat-card-badge-circle {
+    min-width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: var(--theme-secondary-color);
+    margin: var(--chatlist-text-spacing);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-card-badge-number {
+    font-size: 0.7rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#message-field {
+    flex: 1 1 0;
+}

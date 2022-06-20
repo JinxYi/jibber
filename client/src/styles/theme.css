@@ -1,0 +1,171 @@
+/* Theme Variables */
+:root {
+  --theme-accent-color: rgb(49, 49, 65);
+  --theme-accent-color-2: rgb(29, 29, 37);
+  --theme-secondary-color: rgb(227, 234, 240);
+  --theme-background-color: rgb(255, 255, 255);
+  --theme-message-icon-color: rgb(182, 182, 182);
+  --theme-input-border: 1px solid rgba(0, 0, 0, 0.15);
+  /* --theme-input-border: 1px solid rgb(206, 212, 218); */
+  --theme-input-border-radius: 0.7rem;
+  --theme-input-padding: 0.5rem 0.7rem;
+  --theme-input-background: rgb(255, 255, 255);
+  --wrapper-spacing: 1rem;
+  --container-border-radius: 1rem;
+  --scrollbar-width: 0.35rem;
+}
+
+/* Text Selection Styles */
+::-moz-selection { /* Code for Firefox */
+  background-color: var(--theme-secondary-color);
+  color: var(--theme-accent-color);
+}
+
+::selection {
+  background-color: var(--theme-secondary-color);
+  color: var(--theme-accent-color);
+}
+
+
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+  height: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(79, 81, 84, 0.2);
+  border-radius: 0.25rem;
+  border: none;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+.main-container {
+  height: 100vh;
+  display: flex;
+}
+
+
+/*Set default fonts*/
+
+/* Font */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+}
+
+
+/* Form Styles */
+
+/* Input, textarea styles */
+input[type=text], input[type=date], input[type=datetime-local],
+input[type=month], input[type=email], input[type=number],
+input[type=time], input[type=url], input[type=tel], input[type=search],
+input[type=week], input[type=color], 
+textarea {
+  /* border: var(--theme-input-border); */
+  border: 0;
+  border-radius: var(--theme-input-border-radius);
+  padding: var(--theme-input-padding);
+  background-color: var(--theme-background-color);
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: all 0.1s ease-in-out;
+}
+
+input[type=text]:focus, input[type=date]:focus, input[type=datetime-local]:focus,
+input[type=month]:focus, input[type=email]:focus, input[type=number]:focus,
+input[type=time]:focus, input[type=url]:focus, input[type=tel]:focus, input[type=search]:focus,
+input[type=week]:focus, input[type=color]:focus,
+textarea:focus  {
+  outline: var(--theme-secondary-color);
+  /* border: var(--theme-input-border); */
+}
+
+input[type=color] {
+  padding: 0;
+}
+
+input[type=file] {
+  /* border: 1px solid rgb(255, 255, 255); */
+  border-radius: var(--theme-input-border-radius);
+  padding: var(--theme-input-padding);
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+
+/* Select, option styles */
+select {
+  border: var(--theme-input-border);
+  border-radius: var(--theme-input-border-radius);
+  font-size: 0.9rem;
+  padding: var(--theme-input-padding);
+  font-family: inherit;
+  transition: all 0.1s ease-in-out;
+}
+
+select:focus {
+  outline: var(--theme-secondary-color);
+}
+
+
+/* Button styles */
+button, input[type=button], input[type=reset], input[type=submit] {
+  /* border: 2px solid var(--theme-accent-color); */
+  border: 0;
+  border-radius: var(--theme-input-border-radius);
+  padding: var(--theme-input-padding) 0.7rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  background-color: var(--theme-accent-color);
+  color: var(--theme-input-background);
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
+}
+
+button:hover, input[type=button]:hover, input[type=reset]:hover, input[type=submit]:hover {
+  /* color: var(--theme-accent-color); */
+  /* background-color: transparent; */
+  transition: 0.2s ease-in-out;
+}
+
+/* button:focus, input[type=button]:focus, input[type=reset]:focus, input[type=submit]:focus { */
+  /* border-color: rgb(220, 176, 78); */
+/* } */
+
+
+
+/* Table styles */
+table {
+  text-align: left;
+}
+
+table th {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  padding: 0.7rem;
+}
+
+table > tbody > tr > td {
+  border-top: 0.6px solid rgba(0, 0, 0, 0.2);
+  padding: 0.7rem;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}

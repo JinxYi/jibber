@@ -1,0 +1,72 @@
+:root {
+    --theme-input-background: rgb(243, 243, 243);
+    --theme-input-background-2: rgb(228, 228, 228);
+}
+
+.register-form-section {
+    position: relative;
+    max-width: 300px;
+    margin: 4rem auto 3rem;
+}
+
+.login-form-section {
+    max-width: 300px;
+    margin: 20vh auto 0;
+}
+
+
+.form-header {
+    margin-bottom: 1rem;
+
+}
+
+
+.legend-label {
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+}
+
+.form-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.2rem;
+}
+
+.form-input-wrapper label {
+    font-size: 13.5px;
+    font-weight: 500;
+    margin: 0 0 0.6rem;
+    color: rgb(64, 64, 64);
+}
+
+.form-input {
+    background-color: var(--theme-input-background) !important;
+    border: 0 !important;
+    /* width: 100%; */
+    font-size: 13.5px !important;
+}
+
+.form-input:focus {
+    background-color: var(--theme-input-background-2) !important;
+}
+
+.form-input-error {
+    font-size: 0.8em;
+}
+
+.form-footer {
+    display: block;
+    line-height: 1rem;
+    margin: 1.5rem 0 0.8rem;
+    font-size: 0.82rem;
+    color: rgb(92, 92, 92);
+}
+
+.full-button {
+    width: 100%;
+    margin: 0 0 0.6rem;
+}
+
+.full-button:hover {
+    background-color: var(--theme-accent-color-2);
+}

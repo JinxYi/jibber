@@ -1,0 +1,29 @@
+{
+  "name": "jibber",
+  "version": "1.0.0",
+  "description": "Online chat server",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jinxyii/jibber.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jinxyii/jibber/issues"
+  },
+  "homepage": "https://github.com/jinxyii/jibber#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "firebase": "^9.8.3",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.3.3",
+    "ws": "^8.8.0"
+  }
+}
