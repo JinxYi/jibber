@@ -2,10 +2,14 @@
 
 (or some name that has not been taken)
 
+[Github](https://github.com/JinxYi/jibber)
+
 View Project Documentations [here](https://docs.google.com/document/d/1eFwATZaj2-4V_9o9R3C3Ypco-SiZR9B9Yg3qEm-5KBY/edit)
 
-- [ ] Establish database schema and data fields
-- [ ] Create user account using phone number or email
+- [x] Establish database schema and data fields
+- [x] Create user account using phone number or email
+- [x] Sign in using email or phone number
+- [ ] Implement authentication and authorization
 - [ ] Search for users and start a private chat with the person
 - [ ] Send a message to a chat
 - [ ] Update my own message in a chat
@@ -51,3 +55,7 @@ The cient would establish an initial HTTP handshake with the server, upgrading t
 4. The data packet is sent to the reverse proxy, which forwards the message to the server
 5. Redis is responsible for publishing the message to all users in that channel by sending the data packet to the other servers connected to the chat members.
 6. The servers then pushes the data packet back to all the client throught the proxy
+
+## Authentication
+
+Passport, JWT, Bcrypt

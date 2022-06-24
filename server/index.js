@@ -1,12 +1,17 @@
 // server/index.js
 import 'dotenv/config';
 import express from "express";
+import cors from "cors";
 import userController from "./controller/userController.js";
 
 const app = express();
 
 const PORT = process.env.PORT || 3001;
 
+app.use(cors({
+  origin: 'http://localhost:3000',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}));
 
 app.use(express.json({
     verify: (_req, res, buf, _encoding) => {
@@ -23,7 +28,6 @@ app.use(express.urlencoded({ extended: false }));
 
 // logging middleware
 app.use((req, _res, next) => {
-  // go to for console.log font color
   // https://stackoverflow.com/questions/9781218/how-to-change-node-jss-console-font-color
   console.log("\x1b[43m\x1b[30m", req.method, "\x1b[0m\x1b[1m", req.path, "\x1b[0m");
   if (Object.keys(req.query).length !== 0)

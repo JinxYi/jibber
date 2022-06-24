@@ -6,22 +6,11 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import ChatList from './content/ChatCard';
-import ChatColumn from './content/ChatColumn';
+import Main from './content/Main';
 import Register from './content/Register';
 import Login from './content/Login';
 import SetupProfile from './content/SetupProfile';
 
-class Main extends React.Component {
-  render() {
-    return (
-      <div className="main-container">
-        <ChatList></ChatList>
-        <ChatColumn></ChatColumn>
-      </div>
-    );
-  }
-}
 
 
 function App() {

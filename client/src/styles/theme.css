@@ -1,9 +1,12 @@
 /* Theme Variables */
 :root {
-  --theme-accent-color: rgb(49, 49, 65);
+  --theme-accent-color: rgb(62, 62, 85);
   --theme-accent-color-2: rgb(29, 29, 37);
-  --theme-secondary-color: rgb(227, 234, 240);
-  --theme-background-color: rgb(255, 255, 255);
+  --theme-background-color: rgb(234, 239, 244);
+  /* --theme-background-color: rgb(227, 234, 240); */
+  --theme-secondary-color: rgb(255, 255, 255);
+  /* --theme-secondary-color: rgb(227, 234, 240);
+  --theme-background-color: rgb(255, 255, 255); */
   --theme-message-icon-color: rgb(182, 182, 182);
   --theme-input-border: 1px solid rgba(0, 0, 0, 0.15);
   /* --theme-input-border: 1px solid rgb(206, 212, 218); */
@@ -13,17 +16,32 @@
   --wrapper-spacing: 1rem;
   --container-border-radius: 1rem;
   --scrollbar-width: 0.35rem;
+
+  --theme-color-danger: rgb(234, 57, 99);
+  --theme-color-danger-light: rgb(255, 223, 230);
+  --theme-color-warning: rgb(255, 210, 63);
+  --theme-color-info: rgb(49, 141, 202);
+  --theme-color-info-light: rgb(212, 238, 255);
+  --theme-color-gray-light: rgb(78, 78, 78, 0.3);
+  --theme-color-gray-light-2: rgb(78, 78, 78, 0.4);
+  --theme-color-gray: rgb(78, 78, 78);
+  --theme-color-gray-2: rgb(64, 64, 64);
+  --theme-input-background: rgb(243, 243, 243);
+  --theme-input-background-2: rgb(228, 228, 228);
+
+  --chat-card-padding-x: 0.8rem;
+  --chat-card-padding-y: 0.8rem;
 }
 
 /* Text Selection Styles */
 ::-moz-selection { /* Code for Firefox */
-  background-color: var(--theme-secondary-color);
-  color: var(--theme-accent-color);
+  background-color: var(--theme-color-info);
+  color: var(--theme-secondary-color);
 }
 
 ::selection {
-  background-color: var(--theme-secondary-color);
-  color: var(--theme-accent-color);
+  background-color: var(--theme-color-info);
+  color: var(--theme-secondary-color);
 }
 
 
@@ -47,6 +65,7 @@ html {
 .main-container {
   height: 100vh;
   display: flex;
+  background-color: var(--theme-background-color);
 }
 
 
@@ -74,7 +93,7 @@ code {
 input[type=text], input[type=date], input[type=datetime-local],
 input[type=month], input[type=email], input[type=number],
 input[type=time], input[type=url], input[type=tel], input[type=search],
-input[type=week], input[type=color], 
+input[type=week], input[type=color], input[type=password],
 textarea {
   /* border: var(--theme-input-border); */
   border: 0;
@@ -89,7 +108,7 @@ textarea {
 input[type=text]:focus, input[type=date]:focus, input[type=datetime-local]:focus,
 input[type=month]:focus, input[type=email]:focus, input[type=number]:focus,
 input[type=time]:focus, input[type=url]:focus, input[type=tel]:focus, input[type=search]:focus,
-input[type=week]:focus, input[type=color]:focus,
+input[type=week]:focus, input[type=color]:focus, input[type=password]:focus,
 textarea:focus  {
   outline: var(--theme-secondary-color);
   /* border: var(--theme-input-border); */
@@ -118,9 +137,9 @@ select {
   transition: all 0.1s ease-in-out;
 }
 
-select:focus {
-  outline: var(--theme-secondary-color);
-}
+/* select:focus { */
+  /* outline: var(--theme-secondary-color); */
+/* } */
 
 
 /* Button styles */
@@ -168,4 +187,17 @@ table > tbody > tr > td {
 img {
   width: 100%;
   height: auto;
+}
+
+a {
+  color: var(--theme-color-info) !important;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+body {
+  font-size: 0.9rem;
 }

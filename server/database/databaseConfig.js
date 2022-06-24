@@ -13,7 +13,6 @@ const getConnection = async (dbName = true) => {
     // }
   };
   if (dbName) connectOptions.database = process.env.DB_DATABASE_NAME;
-  console.log(connectOptions);
   return await createConnection(connectOptions);
 };
 

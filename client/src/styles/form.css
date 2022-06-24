@@ -1,17 +1,12 @@
-:root {
-    --theme-input-background: rgb(243, 243, 243);
-    --theme-input-background-2: rgb(228, 228, 228);
-}
-
 .register-form-section {
     position: relative;
     max-width: 300px;
-    margin: 4rem auto 3rem;
+    margin: 3.5rem auto 3rem;
 }
 
 .login-form-section {
     max-width: 300px;
-    margin: 20vh auto 0;
+    margin: 15vh auto;
 }
 
 
@@ -20,6 +15,14 @@
 
 }
 
+.form-redirect {
+    display: block;
+    margin: 0.8rem 0 0;
+    text-align: center;
+    font-size: 0.9rem;
+    /* font-weight: 600; */
+    color: var(--theme-accent-color);
+}
 
 .legend-label {
     font-weight: 600;
@@ -29,20 +32,20 @@
 .form-input-wrapper {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.8rem;
 }
 
 .form-input-wrapper label {
     font-size: 13.5px;
     font-weight: 500;
     margin: 0 0 0.6rem;
-    color: rgb(64, 64, 64);
+    color: var(--theme-color-gray-2);
 }
 
 .form-input {
     background-color: var(--theme-input-background) !important;
     border: 0 !important;
-    /* width: 100%; */
+    margin-bottom: 0.4rem;
     font-size: 13.5px !important;
 }
 
@@ -50,8 +53,59 @@
     background-color: var(--theme-input-background-2) !important;
 }
 
+.form-input.error {
+    outline: 0.1rem solid var(--theme-color-danger);
+    background-color: var(--theme-color-danger-light) !important;
+}
+
 .form-input-error {
-    font-size: 0.8em;
+    display: flex;
+    font-size: 0.9rem;
+    border-radius: var(--theme-input-border-radius);
+    margin: 0.7rem 0;
+    padding: 0.6rem 0.8rem;
+    color: var(--theme-color-danger);
+    background-color: var(--theme-color-danger-light);
+    align-items: center;
+}
+
+.form-input-error-icon {
+    font-size: 1.2rem;
+    color: var(--theme-color-danger);
+}
+
+.form-input-error-message {
+    display: block;
+    font-size: 0.9rem;
+    margin: 0 0.6rem;
+    flex: 1 1 0;
+    line-height: 1.1rem;
+}
+
+.form-input-error-dismiss-wrapper {
+    cursor: pointer;
+    color: #fff;
+    background-color: var(--theme-color-gray-light);
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 0.55rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-input-error-dismiss-wrapper:hover {
+    background-color: var(--theme-color-gray-light-2);
+}
+
+.form-input-error-dismiss-icon {
+    width: 0.5rem;
+}
+
+.form-field-input-error {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--theme-color-danger);
 }
 
 .form-footer {
@@ -59,7 +113,7 @@
     line-height: 1rem;
     margin: 1.5rem 0 0.8rem;
     font-size: 0.82rem;
-    color: rgb(92, 92, 92);
+    color: var(--theme-color-gray);
 }
 
 .full-button {
@@ -70,3 +124,23 @@
 .full-button:hover {
     background-color: var(--theme-accent-color-2);
 }
+
+.password-input-container {
+    position: relative;
+}
+
+.password-input-container input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.password-input-icons {
+    cursor: pointer;
+    padding: var(--theme-input-padding);
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: var(--theme-accent-color);
+    /* font-size: 13.5px; */
+}
+
