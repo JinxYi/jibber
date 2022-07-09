@@ -18,7 +18,7 @@ class Main extends React.Component {
         super(props);
 
         this.messageListRef = React.createRef(); // dummy element for scrolling chat
-        const messages = [
+        this.messages = [
             {
                 "id": 1,
                 "messageContent": "Im still at home",
@@ -123,7 +123,8 @@ class Main extends React.Component {
             "items": chats,
             "newChats": [],
             "searchInput": "",
-            "messages": messages,
+            // "messages": messages,
+            "messages": [],
             "messageInput": "",
             "currentUserId": null,
             "currentUserName": null,
@@ -197,11 +198,13 @@ class Main extends React.Component {
     }
 
     handleNewConversation = (event, key, name, profilePicture, isNewChat) => {
+        
         this.setState({
             "currentUserId": key,
             "currentUserName": name,
             "currentUserProfile": profilePicture,
-            "isNewChat": isNewChat
+            "isNewChat": isNewChat,
+            "messages": this.messages
         })
     }
 

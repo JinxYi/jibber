@@ -1,35 +1,8 @@
-// import { initializeApp } from "firebase/app";
 import bcrypt from "bcrypt"
 import { getConnection } from "../database/databaseConfig.js";
 import JibberError from "../model/jibberError.js";
 
 const saltRounds = 11;
-
-// const firebaseConfig = {
-//   apiKey: process.env.FB_API_KEY,
-//   authDomain: process.env.FB_AUTH_DOMAIN,
-//   projectId: process.env.FB_PROJ_ID,
-//   storageBucket: process.env.FB_STORAGE_BUCKET,
-//   messagingSenderId: process.env.FB_MESSAGE_SENDER_ID,
-//   appId: process.env.FB_APP_ID,
-//   measurementId: process.env.FB_MEASUREMENT_ID
-// };
-// const firebaseConfig = {
-//   apiKey: "AIzaSyCtRgGtSjWEjRCqkVPWak2cA-EoRL6DakI",
-//   authDomain: "jibber-493ff.firebaseapp.com",
-//   projectId: "jibber-493ff",
-//   storageBucket: "jibber-493ff.appspot.com",
-//   messagingSenderId: "695081393454",
-//   appId: "1:695081393454:web:0ff657fc8387ba6b1a2ebf",
-//   measurementId: "G-X5F4VEQ8SH"
-// };
-
-// Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// import { getStorage } from "firebase/storage";
-
-// const storage = getStorage(firebaseApp);
-
 
 class User {
     constructor(id, username, about, countryCode, phone, email, password, profilePicture, isDeleted) {
@@ -49,10 +22,17 @@ class User {
     static findUserById = (userId) => {
         return new Promise(async (resolve, reject) => {
             try {
-                const query = `SELECT id, username, about, countryCode, email, profliePicture, isDeleted FROM user WHERE id = ?;`;
+                const connection = await getConnection();
+                const query = `SELECT id, username, about, countryCode, email, profilePicture, isDeleted FROM user WHERE id = ? AND isDeleted = false;`;
                 const [rows, fields] = await connection.execute(query, [userId]);
                 connection.end();
-                if(rows && rows.length > 1) resolve(rows[0]);
+                
+                if(rows && rows.length >= 1) resolve({
+                    "id": rows[0].id,
+                    "username": rows[0].username,
+                    "email": rows[0].email,
+                    "profilePicture": rows[0].profilePicture
+                });
                 else throw new JibberError(JibberError.errorCodes.NOT_FOUND, "User ID provided does not exist");
             } catch(err) {
                 console.log(err);
@@ -95,8 +75,12 @@ class User {
                 if(rows.length < 1) throw new JibberError(JibberError.errorCodes.INVALID_CREDENTIALS,  "Incorrect email or password");
                 const checkPassword = bcrypt.compareSync(password, rows[0].password);
                 if(!checkPassword) throw new JibberError(JibberError.errorCodes.INVALID_CREDENTIALS,  "Incorrect email or password");
-                resolve();
-                
+                resolve({
+                    "id": rows[0].id,
+                    "username": rows[0].username,
+                    "email": rows[0].email,
+                    "profilePicture": rows[0].profilePicture
+                });
             } catch(err) {
                 console.log(err);
                 reject(err);

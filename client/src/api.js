@@ -4,19 +4,23 @@ export const protocol = "http";
 export const host = "localhost:3001";
 export const base = `${protocol}://${host}`;
 
+const instance = axios.create({
+  baseURL: base,
+  withCredentials: true
+})
 
 export const loginUser = (data) => {
-    return axios
-      .post(`${base}/api/user/login`, data);
+  return instance
+    .post(`/api/user/login`, data);
 }
 
 export const registerUser = (data) => {
-    return axios
-      .post(`${base}/api/user/register`, data)
+  return instance
+    .post(`/api/user/register`, data)
 }
 
 export const searchUser = (query) => {
-    return axios
-      .get(`${base}/api/user/search?q=${query}`);
+  return instance
+    .get(`/api/user/search?q=${query}`);
 }
 

@@ -33,8 +33,9 @@ View Project Documentations [here](https://docs.google.com/document/d/1eFwATZaj2
 ## Start Project
 
 - Open a terminal and navigate to the root of the project
-- Enter `npm install` to install all the modules needed for the backend
+- Execute the sql file `jibber_create_database.sql` at `server\database\`
 - Add a .env file to the root of the project directory, and add the necessary key values
+- Enter `npm install` to install all the modules needed for the backend
 - Type `npm start` to start the backend server
 - Type `cd client` to navigate to the client folder, and type `npm install` once again
 - Type `npm start` to start the client server
