@@ -6,10 +6,10 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import Main from './content/Main';
-import Register from './content/Register';
-import Login from './content/Login';
-import SetupProfile from './content/SetupProfile';
+import Main from './pages/Main';
+import Register from './pages/Register';
+import Login from './pages/Login';
+import SetupProfile from './pages/SetupProfile';
 
 
 

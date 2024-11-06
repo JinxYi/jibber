@@ -19,6 +19,27 @@ export const registerUser = (data) => {
     .post(`/api/user/register`, data)
 }
 
+export const getChatSessions = () => {
+  return instance
+    .get(`/api/session`);
+}
+
+export const getMessagesByChatSession = (chatSessionId, data = {}) => {
+  return instance
+    .post(`/api/session/messages/${chatSessionId}`, data);
+}
+
+export const checkPrivChatExists = (data) => {
+  return instance
+    .post(`/api/session/exists/`, data);
+}
+
+export const createPrivChatSession = (data) => {
+  return instance
+    .post(`/api/session/create/`, data);
+}
+
+
 export const searchUser = (query) => {
   return instance
     .get(`/api/user/search?q=${query}`);

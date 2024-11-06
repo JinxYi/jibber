@@ -4,33 +4,7 @@ const router = express.Router();
 import passport from "passport";
 import User from "../model/user.js";
 import JibberError from "../model/jibberError.js";
-import LocalStrategy from "passport-local";
 
-passport.use(new LocalStrategy(
-    {
-        usernameField: "email", passwordField: "password"
-    },
-    async (email, password, done) => {
-        try {
-            const user = await User.loginUser(email, password);
-            return done(null, user);
-        } catch (err) {
-            return done(err, null);
-        }
-    }));
-
-passport.serializeUser((user, done) => {
-    done(null, user.id);
-});
-
-passport.deserializeUser(async (id, done) => {
-    try {
-        const user = await User.findUserById(id);
-        done(null, user);
-    } catch (err) {
-        done(err, null);
-    }
-});
 
 /**
  * POST /api/user/register
@@ -39,7 +13,6 @@ router.post("/register",
     async (req, res) => {
         const { username, email, password } = req.body;
         try {
-            console.time("POST register user");
             await User.registerUser(username, email, password);
             res.status(201).end();
         } catch (err) {
@@ -48,8 +21,6 @@ router.post("/register",
                 console.log("Unexpected Error:", err);
                 res.status(500).send({ error: "Error registering user", code: "UNEXPECTED_ERROR" });
             }
-        } finally {
-            console.timeEnd("POST register user");
         }
     }
 );
@@ -60,7 +31,12 @@ router.post("/register",
 router.post("/login",
     passport.authenticate("local", { failWithError: true }),
     (req, res, next) => {
-        res.status(200).end();
+        res.status(200).send({
+            "id": req.user.id,
+            "username": req.user.username,
+            "email": req.user.email,
+            "profilePicture": req.user.profilePicture
+        });
     },
     (err, req, res, next) => {
         console.log("Unexpected Error:", err);
@@ -89,7 +65,6 @@ router.get("/search",
         }
     }
 );
-
 
 
 export default router;

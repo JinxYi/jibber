@@ -73,12 +73,13 @@
     text-overflow: ellipsis;
     flex-grow: 1;
     font-weight: 600;
+    font-size: 0.95rem;
     color: var(--theme-accent-color);
 }
 
 .chat-card-lastmsg-time {
     font-size: 0.7rem;
-    color: #555;
+    color: rgb(101, 101, 101);
     margin: var(--chatlist-text-spacing);
 }
 

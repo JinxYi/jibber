@@ -12,14 +12,14 @@ const errorCodes = {
 
 class JibberError extends Error {
 
-    constructor(code = 'UNEXPECTED_ERROR', ...params) {
+    constructor(code = "UNEXPECTED_ERROR", ...params) {
         super(...params);
 
         if (Error.captureStackTrace) {
             Error.captureStackTrace(this, JibberError)
         }
 
-        this.name = 'JibberError';
+        this.name = "JibberError";
         // Custom debugging information
         this.code = code;
     }

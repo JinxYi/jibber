@@ -60,42 +60,6 @@ class Member {
             }
         });
     }
-    static checkPrivChatExists = (userId1, userId2) => {
-        return new Promise(async (resolve, reject) => {
-            try {
-                const connection = await getConnection();
-                const query = `
-                    SELECT 
-                        member.chatSessionId as "id"
-                    FROM
-                        member, chatSession
-                    WHERE
-                        member.chatSessionId = chatSession.id
-                        AND
-                        member.userId = ?
-                        AND
-                        chatSession.isPrivate = true
-                        AND chatSession.id IN (
-                            SELECT
-                                chatSession.id
-                            FROM member, chatSession
-                            WHERE
-                                member.chatSessionId = chatSession.id
-                                AND
-                                member.userId = ?
-                        );
-                    `;
-                const [rows, fields] = await connection.execute(query, [userId1, userId2]);
-                connection.end();
-                if (rows.length > 0) {
-                    // resolve(rows[0].id);
-                    throw new JibberError(JibberError.errorCodes.CHAT_EXISTS, "The chat already exists");
-                }
-            } catch (err) {
-                reject(err);
-            }
-        });
-    }
 }
 
 export default Member;

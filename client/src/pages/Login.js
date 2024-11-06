@@ -21,7 +21,7 @@ class Login extends React.Component {
     
     handleInputChange = (event) => {
         const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const value = target.type === "checkbox" ? target.checked : target.value;
         const name = target.name;
         this.setState({
             [name]: value
@@ -46,6 +46,7 @@ class Login extends React.Component {
         }
         loginUser(body)
             .then(result => {
+                localStorage.setItem("_pud", JSON.stringify(result.data));
                 window.location.replace("/");
             })
             .catch(error => {
@@ -57,8 +58,6 @@ class Login extends React.Component {
                     this.setState({ formError: "Sorry, an unexpected error occured" });
                 } else if (error.request) {
                     // The request was made but no response was received
-                    // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-                    // http.ClientRequest in node.js
                     this.setState({ formError: "Sorry, an unexpected error occured on the server" });
                 } else {
                     console.log("An unexpected error occured on the client side", error);

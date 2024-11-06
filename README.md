@@ -9,7 +9,7 @@ View Project Documentations [here](https://docs.google.com/document/d/1eFwATZaj2
 - [x] Establish database schema and data fields
 - [x] Create user account using phone number or email
 - [x] Sign in using email or phone number
-- [ ] Implement authentication and authorization
+- [x] Implement authentication and authorization
 - [ ] Search for users and start a private chat with the person
 - [ ] Send a message to a chat
 - [ ] Update my own message in a chat
